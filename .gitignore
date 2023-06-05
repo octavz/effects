@@ -1,0 +1,16 @@
+# common IDEs to be ignored
+.idea/
+.metals/
+.vscode/
+
+# build tool specific entries
+.bloop
+.bsp
+target
+metals.sbt
+project/project
+
+.terraform.lock.hcl
+null
+*.ipr
+*.iws

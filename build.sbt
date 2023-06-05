@@ -8,6 +8,9 @@ lazy val root = (project in file("."))
     name := "demo",
     libraryDependencies ++= Seq(
       "dev.zio" %% "zio" % "2.0.13",
+      "dev.zio" %% "zio-config" % "4.0.0-RC16",
+      "dev.zio" %% "zio-config-magnolia" % "4.0.0-RC16",
+      "dev.zio" %% "zio-config-typesafe" % "4.0.0-RC16",
       "dev.zio" %% "zio-test" % "2.0.13" % Test
     ),
     testFrameworks += new TestFramework("zio.test.sbt.ZTestFramework")

@@ -11,6 +11,7 @@ lazy val root = (project in file("."))
       "dev.zio" %% "zio-config" % "4.0.0-RC16",
       "dev.zio" %% "zio-config-magnolia" % "4.0.0-RC16",
       "dev.zio" %% "zio-config-typesafe" % "4.0.0-RC16",
+      "io.getquill" %% "quill-jdbc-zio" % "4.6.0.1",
       "dev.zio" %% "zio-test" % "2.0.13" % Test
     ),
     testFrameworks += new TestFramework("zio.test.sbt.ZTestFramework")

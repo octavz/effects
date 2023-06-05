@@ -6,11 +6,5 @@ import zio.config.typesafe.*
 case class DatabaseConfig(host: String, port: Int, database: String, user: String, password: String )
 case class AppConfig(database: DatabaseConfig)
 
-
 object AppConfig:
   val config: Config[AppConfig] = deriveConfig[AppConfig]
-/*
-  val config: ZIO[Any, Exception, AppConfig] =
-    TypesafeConfigProvider
-      .fromResourcePath()
-      .load(deriveConfig[AppConfig])*/

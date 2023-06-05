@@ -1,6 +1,6 @@
 import zio.*
 
-case class User(id: String, email: String, password: String)
+case class User(email: String, password: String)
 
 trait Database:
   def createUser(email: String, password: String): ZIO[Any, Exception, Unit]

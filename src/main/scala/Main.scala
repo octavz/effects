@@ -1,7 +1,7 @@
 import zio.*
 import zio.Console.printLine
 import zio.config.typesafe.TypesafeConfigProvider
-
+import zio.http.*
 
 object Main extends ZIOAppDefault:
 
@@ -11,6 +11,12 @@ object Main extends ZIOAppDefault:
         .fromResourcePath()
     )
 
-  override def run: ZIO[ZIOAppArgs with Scope, Exception , Unit] =
-    ZIO.serviceWithZIO[Database](service => service.createUser("", ""))
-      .provide(Database.layer)
+  val app =
+    Http.collect[Request] {
+      case Method.GET -> root / "text" => Response..text("Hello World!")
+    }
+  override def run: ZIO[ZIOAppArgs with Scope, Throwable , Unit] =
+    for {
+      _ <- Server.serve(app).provide(Server.default)
+      //ZIO.serviceWithZIO[Database] (service => service.createUser("john@example.com", "qwertasdf")).provide(Database.layer, PostgresDataSource.layer)
+    } yield ()

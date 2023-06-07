@@ -14,3 +14,4 @@ project/project
 null
 *.ipr
 *.iws
+postgres-data
